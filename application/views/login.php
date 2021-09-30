@@ -36,22 +36,22 @@
               </div>
             </div>
           </div>
-          <span style="color:red"><?php echo form_error('password'); ?> </span>
-            
+            <span style="color:red"><?php echo form_error('password'); ?> 
+            </span>
             <!-- /.col -->
             <div class="col-8">
               <br>
               <button type="submit" name="login" class="btn btn-primary btn-block">Sign In</button>
             </div>
             <!-- /.col -->
-        </form>
+          </form>
 
-  </div>
-      <!-- /.card-body -->
+        </div>
+         <!-- /.card-body -->
+      </div>
+      <!-- /.card -->
     </div>
-    <!-- /.card -->
+   <!-- /.login-box -->
   </div>
-  <!-- /.login-box -->
-</div>
 
  
