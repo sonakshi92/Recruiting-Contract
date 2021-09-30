@@ -1,16 +1,14 @@
 <?php require_once('includes/header.php'); ?>
 <title>List Of Paper Work | Project</title>
-<?php require_once('includes/dtsidebar.php'); ?>
+<?php require_once('includes/sidebar.php'); ?>
 
 <?php
  $conn = mysqli_connect('localhost', 'root', '', 'r_contracts');
  $getusers = mysqli_query($conn, "SELECT * FROM paper_work ORDER by id ASC");
 ?>
 
-<!-- Content Wrapper. Contains page content -->
-<div class="content-wrapper">
     <!-- Content Header (Page header) -->
-    <section class="content-header">
+    <section class="content">
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
@@ -25,7 +23,6 @@
         </div>
       </div><!-- /.container-fluid -->
     </section>
-</div>
 
 <!-- Main content -->
 <section class="content">
@@ -66,8 +63,8 @@
                                 <td><?php echo $data['manager_name'];?></td>
                                 <td><?php echo $data['upload_files'];?></td>
                                 <td>
-                                    <a href="<?php echo base_url().'user/editdoc?x='.$data['id']?>" class="btn btn-sm btn-warning"style="font-size:15px;">- Edit </a>
-                                    <a href="<?php echo base_url().'user/deletedoc/'.$data['id']?>" class="btn btn-sm btn-danger" style="font-size:15px;"> X Delete </a>
+                                    <a href="<?php echo base_url().'user/editdoc?x='.$data['id']?>" class="btn btn-primary"><i class="fa fa-pencil"></i></a>
+                                    <a href="<?php echo base_url().'user/deletedoc/'.$data['id']?>" class="btn btn-danger"> <i class="fa fa-trash"></i> </a>
                                 </td>
                             </tr>
                             <?php  } ?>    
@@ -102,3 +99,4 @@
   });
 </script>
 
+<?php require_once('includes/footer.php'); ?>

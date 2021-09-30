@@ -62,7 +62,6 @@ class User extends CI_Controller {
         $data['data'] = $data;
         if(isset($_SESSION['username']) && $_SESSION['username'] != ''){
            $this->load->view('dashboard',$data);
-           $this->load->view('ld',$data);
         } else{
         redirect('user/login');
         }

@@ -1,8 +1,6 @@
 <?php require_once('includes/header.php'); ?>
 <title>Add Contract | Project </title>
-<?php require_once('includes/dtsidebar.php'); ?>
-
-
+<?php require_once('includes/sidebar.php'); ?>
 <div class="col-md-5">
 
 <?php if(isset($_SESSION['success'])) { ?>
@@ -98,7 +96,6 @@
         </div>
       </div>
     </div>
-  </div>
             <!-- /.card -->
 
 

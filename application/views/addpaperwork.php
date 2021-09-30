@@ -1,6 +1,6 @@
 <?php require_once('includes/header.php');?>
 <title>Add Documentation | Project</title>
-<?php require_once('includes/dtsidebar.php'); ?>
+<?php require_once('includes/sidebar.php'); ?>
 
 <div class="col-md-5">
 

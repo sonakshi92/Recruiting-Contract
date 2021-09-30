@@ -1,5 +1,5 @@
 <footer class="main-footer">
-    <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
+    <strong>Copyright &copy; <?php echo date('Y');?> <a href="">Recrutings.io</a>.</strong>
     All rights reserved.
     <div class="float-right d-none d-sm-inline-block">
       <b>Version</b> 3.2.0-rc
@@ -16,7 +16,6 @@
 </div>
 
 <!-- jQuery -->
-<script src="<?php echo base_url(); ?>assets/theme/plugins/jquery/jquery.min.js"></script>
 <!-- jQuery UI 1.11.4 -->
 <script src="plugins/jquery-ui/jquery-ui.min.js"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
@@ -49,11 +48,3 @@
 <script src="<?php echo base_url(); ?>assets/theme/dist/js/demo.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="<?php echo base_url(); ?>assets/theme/dist/js/pages/dashboard.js"></script>
-
-<script>
-        $(document).ready( function () {
-            $('.tableAlll').DataTable();
-        } );
-    </script>
-</script>
-
