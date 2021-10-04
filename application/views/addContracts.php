@@ -1,11 +1,5 @@
-<?php require_once('includes/header.php'); ?>
 <title>Add Contract | Project </title>
-<?php require_once('includes/sidebar.php'); ?>
-<div class="col-md-5">
 
-<?php if(isset($_SESSION['success'])) { ?>
-    <h3> <div class="alert alert-success"> <?php echo $_SESSION['success']; ?></h3>
-     <?php }  ?></div>
 
      <section class="content">
       <div class="container-fluid">
@@ -13,6 +7,10 @@
         <div class="card card-default">
           <div class="card-header">
             <h3 class="card-title"> CONTRACT FORM</h3>
+            <?php if(isset($_SESSION['success'])) { ?>
+    <h3> <div class="alert alert-danger"> <?php echo $_SESSION['success']; ?></h3>
+     <?php }  ?>
+
             <div class="card-tools">
               <button type="button" class="btn btn-tool" data-card-widget="collapse">
                 <i class="fas fa-minus"></i>
@@ -98,5 +96,3 @@
     </div>
             <!-- /.card -->
 
-
-<?php require_once('includes/footer.php'); ?>

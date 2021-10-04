@@ -1,6 +1,4 @@
-<?php require_once('includes/header.php'); ?>
 <title>Edit Contract | Project </title>
-<?php require_once('includes/sidebar.php'); ?>
 
 <div class="col-md-5">
 
@@ -46,10 +44,12 @@
                         <span style="color:red" class="danger" ><?php echo form_error('sub_by'); ?> </span>
                       </div>
                       <div class="form-group">
-                      <label> Upload File :</label>
-                      <input type="file"  class="form-control" name="upload_file" value="<?php echo $user['upload_file'];?>">
-
-                      <img src="<?php echo base_url().$user['upload_file'];?>" class="form-control" style="width:100px;height:100px;margin-top:3px;">
+                      <label style="text-decoration: underline;">Upload File :</label><br>          
+        <input type="file" name="upload_file" size="50">  
+        <img src="<?php echo base_url().$user['media_files'];?>" style="width:100px;height:100px;margin-top:3px;">
+        <input type="hidden" name="old_img_file" value="<?= $user['media_files'];?>">
+        <?php  if($this->session->flashdata('error')){echo $this->session->flashdata('error');}?>
+                      
                       <span style="color:red" class="danger" ><?php echo form_error('upload_file'); ?> </span>
                     </div> 
                     <div class="form-group">
@@ -61,7 +61,7 @@
                       <label>No</label> <?php echo form_error('blacklisted');?><br><br>
                     </div>
                     <div class="form-group">
-                    <button type="submit" style="font-size:15px;" class="btn btn-primary btn-lg">Update</button>
+                    <button type="submit" style="font-size:15px;" class="btn btn-warning btn-lg">Update</button>
                     <a style="font-size:15px;" href="<?php echo base_url().'user/dashboard';?>" class="btn btn-secondary btn-lg">Cancel</a>
                     </div>
                     <!-- /.form-group -->
@@ -103,4 +103,3 @@
       </div>
       <!-- /.card -->
 
-<?php require_once('includes/footer.php'); ?>

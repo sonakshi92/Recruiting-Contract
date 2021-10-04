@@ -1,24 +1,24 @@
-<?php require_once('includes/header.php'); ?>
 <title>List Of Paper Work | Project</title>
-<?php require_once('includes/sidebar.php'); ?>
 
 <?php
  $conn = mysqli_connect('localhost', 'root', '', 'r_contracts');
  $getusers = mysqli_query($conn, "SELECT * FROM paper_work ORDER by id ASC");
 ?>
+    <section class="content-header">
+    <div class="container-fluid">
 
     <!-- Content Header (Page header) -->
-    <section class="content">
+    <section class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
             <h1>List Of Documentations</h1>
+            <?php if(isset($_SESSION['success'])) { ?>
+                <h3> <div class="alert alert-success"> <?php echo $_SESSION['success']; ?></h3>
+                  <?php }  ?></div>
           </div>
           <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="dashboard">Home</a></li>
-              <li class="breadcrumb-item active">Documents</li>
-            </ol>
+            
           </div>
         </div>
       </div><!-- /.container-fluid -->
@@ -39,6 +39,7 @@
                             <table id="docTable" class="table tableAll table-bordered table-hover">
                             <thead>
                             <tr>
+                                <th>Sr.No</th>
                                 <th>Name Of Candidate</th>
                                 <th>Email</th>
                                 <th>Phone</th>
@@ -52,25 +53,45 @@
                             </thead>
 
                             <tbody>
-                            <?php while($data = mysqli_fetch_array($getusers)){ ?>
-                            <tr>
-                                <td><?php echo $data['name_of_candidate'];?></td>
-                                <td><?php echo $data['email'];?></td>
-                                <td><?php echo $data['phone'];?></td>
-                                <td><?php echo $data['employer_company_name'];?></td>
-                                <td> <span style="color:dodgerblue" type=button onClick="parent.open" ><?php echo $data['employer_website'];?></td>
-                                <td><?php echo $data['sub_by_rec_name'];?></td>
-                                <td><?php echo $data['manager_name'];?></td>
-                                <td><?php echo $data['upload_files'];?></td>
-                                <td>
-                                    <a href="<?php echo base_url().'user/editdoc?x='.$data['id']?>" class="btn btn-primary"><i class="fa fa-pencil"></i></a>
-                                    <a href="<?php echo base_url().'user/deletedoc/'.$data['id']?>" class="btn btn-danger"> <i class="fa fa-trash"></i> </a>
-                                </td>
-                            </tr>
-                            <?php  } ?>    
-                            </tbody>
-                            <tfoot></tfoot>
-                            </table>
+                        <?php 
+                            $i=0;
+                            foreach($paperwork as $data){
+                                $id = $data['id'];
+                                $i++;
+                        ?>
+                        <tr>
+                            <td><?= $i;?></td>
+                            <td><?php echo $data['name_of_candidate'];?></td>
+                            <td><?php echo $data['email'];?></td>
+                            <td><?php echo $data['phone'];?></td>
+                            <td><?php echo $data['employer_company_name'];?></td>
+                            <td> <span style="color:dodgerblue" type=button onClick="parent.open" ><?php echo $data['employer_website'];?></span></td>
+                            <td><?php echo $data['sub_by_rec_name'];?></td>
+                            <td><?php echo $data['manager_name'];?></td>
+                            <td>
+                                <table>
+                                    <tbody>
+                                <?php 
+                                    foreach ($paperworkdoc as $key => $docval) {
+                                        if($id===$docval['paper_work_id']){
+                                            $link = base_url().$docval['media_files'];
+                                           echo '<tr><td><a href="'.$link.'" target="_blank"><img style="width:50px;height:20px;" src="'.$link.'"></a></td></tr>' ;
+                                        }
+                                    }
+                                ?>
+                                    </tbody>
+                                 </table>   
+                            </td>
+                            <td>
+                              <a href="<?php echo base_url().'user/editdoc?x='.$data['id']?>" class="btn btn-sm btn-primary"style="font-size:15px;"><i class="fa fa-edit"></i></a>
+                              <button onclick="deletePaperDoc(<?= $id;?>)" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
+                            </td>
+                        </tr>
+                        <?php
+                            }
+                        ?>  
+                    </tbody>        
+                </table>
                         </div>
                     </div>
                     <!-- /.card-body -->
@@ -81,11 +102,12 @@
         </div>
         <!-- /.row -->
     </div>
+    </div>
     <!-- /.container-fluid -->
 </section>
         <!-- /.content -->
 
-<script>
+        <script>
   $(function () {
     $('#docTable').DataTable({
       "paging": true,
@@ -93,10 +115,8 @@
       "searching": false,
       "ordering": true,
       "info": true,
-      "autoWidth": false,
+      "autoWidth": true,
       "responsive": true,
     });
   });
 </script>
-
-<?php require_once('includes/footer.php'); ?>

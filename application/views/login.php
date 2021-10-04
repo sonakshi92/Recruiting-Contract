@@ -1,4 +1,3 @@
-<?php require_once('includes/header.php'); ?>
 <title>Login | CI Project</title>
 <?php if(isset($_SESSION['success'])) { ?>
     <?php echo $_SESSION['success']; ?>
@@ -12,6 +11,9 @@
     <div class="card card-outline card-primary">
       <div class="card-header text-center">
         <a href="" class="h1"><b>LOGIN</b></a>
+        <?php if(isset($_SESSION['msg'])) { ?>
+    <h3> <div class="alert alert-danger"> <?php echo $_SESSION['msg']; ?></h3>
+     <?php }  ?>
       </div>
       <div class="card-body">
         <p class="login-box-msg">Sign in to start </p><br>
@@ -54,5 +56,4 @@
    <!-- /.login-box -->
   </div>
 
-<?php require_once('includes/footer.php'); ?>
  

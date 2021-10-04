@@ -1,6 +1,4 @@
-<?php require_once('includes/header.php');?>
 <title>Add Documentation | Project</title>
-<?php require_once('includes/sidebar.php'); ?>
 
 <div class="col-md-5">
 
@@ -76,6 +74,8 @@
                   <label> Upload Multi Files :</label>
                     <input type="file" class="form-control" name="upload_files[]" multiple="multiple">
                     <small> <?php if(isset($errorfile)) { echo $errorfile; } ?></small>
+                  <span style="color:red" class="danger" ><?php echo form_error('upload_files[]'); ?> </span>
+
                 </div> 
               </div>
               </form>
@@ -86,4 +86,3 @@
   </div>
             <!-- /.card -->
 
-<?php require_once('includes/footer.php'); ?>

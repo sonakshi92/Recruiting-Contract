@@ -15,6 +15,39 @@
 <!-- ./wrapper -->
 </div>
 
+<script type="text/javascript">
+
+    function deleteContractor(id){
+        if(confirm("Do you want to delete this contractor?")){
+            $.ajax({
+                url: "<?= site_url().'user/deleteContractor';?>",
+                type: 'post',
+                data:{id:id},
+                success:function(response){
+                    alert(response);
+                    location.reload();
+                }
+            });
+        }
+    }
+
+    function deletePaperDoc(id){
+        if (confirm('Do you want to delete this?')) {
+            $.ajax({
+                url:"<?= site_url('user/deletePaperDoc')?>",
+                type:'post',
+                data:{id:id},
+                success:function(response){
+                    alert(response);
+                    // console.log(response);
+                    location.reload();
+                }
+            });
+        }
+    }
+
+    
+</script>
 <!-- jQuery -->
 <!-- jQuery UI 1.11.4 -->
 <script src="plugins/jquery-ui/jquery-ui.min.js"></script>
