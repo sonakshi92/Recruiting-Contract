@@ -37,14 +37,13 @@ class User extends CI_Controller {
                $user = $query->row();
                if(isset($user->email) && isset($user->password))  
                {
-                  $this->session->set_flashdata("success", "You are logged in successfully");
-
+                  $this->session->set_flashdata("login", "You are logged in successfully. ");
                   $_SESSION['user_logged'] = TRUE;
                   $_SESSION['username'] = $user->email;
                   redirect("user/dashboard", "refresh");
                } else{
                   if($this->form_validation->run() == TRUE); 
-                  $this->session->set_flashdata("msg", "<div class='alert alert-danger'>Either Email id or password is wrong</div>"); 
+                  $this->session->set_flashdata("msg", "Enter Valid Credentials"); 
                }
             } 
          }
@@ -111,7 +110,6 @@ public function addContracts()
    $upload_file="";
    if(isset($_FILES["upload_file"]["name"]) && $_FILES["upload_file"]["name"]!="") 
    {
-
       $target_dir = "assets/images/contractorMedia/";
       $file2 = $_FILES['upload_file']['name'];
       // $imageFileType2 = strtolower(pathinfo($file2,PATHINFO_EXTENSION));
@@ -340,6 +338,8 @@ public function deleteContractor()
          }
       }else{
          $statusMsg = 'Please select image files to upload';
+      $this->form_validation->set_rules('upload_files[]', 'Upload','required');
+
       }
       $this->form_validation->set_rules('name_of_candidate', 'Name Of Candidate','required');
       $this->form_validation->set_rules('email', 'Email','required');
@@ -499,7 +499,7 @@ public function updatedoc()
          $res = $this->db->update('paper_work', $data);
          if ($res) {
             if(count($upload_files)>0){
-               for ($i=0; $i < count($upload_files); $i++) { 
+               for ($i=0; $i < count($upload_files); $i++) {
                   $upload_files[$i]['paper_work_id'] = $id;
                }
                $this->db->insert_batch('paperworks_documents',$upload_files);

@@ -71,7 +71,9 @@
                                 <td><?php echo $data['employer_phn'];?></td>
                                 <td><?php echo $data['sub_by'];?></td>
                                 <td><?php echo $data['sub_for_company'];?></td>
-								                <td><a href ="<?= base_url().$files;?>" target="_blank"><?= substr($files,strrpos($files,'/',0)+1);?></td>
+								                <!-- <td><a href ="" target="_blank"></td> -->
+                                <td><a href="<?= base_url().$files;?>" target="_blank"><img style="width:50px;height:20px;" src="<?= base_url().$files;?>"></a></td>
+
                                 <td><?php echo $data['blacklisted'];?></td>
                                 <td>
                                   <a href="<?php echo base_url().'user/editContract?v='.$data['id'];?>" class="btn btn-sm btn-primary" title="Edit"><i class="fa fa-edit"></i></a>
@@ -93,9 +95,7 @@
     </div>
     <!-- /.container-fluid -->
 </section>
-<br><br>
-<br><br>
-<br><br>
+    </div>
         <!-- /.content -->
 <script>
   $(function () {

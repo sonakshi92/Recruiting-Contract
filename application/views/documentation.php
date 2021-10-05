@@ -4,8 +4,6 @@
  $conn = mysqli_connect('localhost', 'root', '', 'r_contracts');
  $getusers = mysqli_query($conn, "SELECT * FROM paper_work ORDER by id ASC");
 ?>
-    <section class="content-header">
-    <div class="container-fluid">
 
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -21,7 +19,6 @@
             
           </div>
         </div>
-      </div><!-- /.container-fluid -->
     </section>
 
 <!-- Main content -->

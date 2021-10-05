@@ -8,10 +8,9 @@
         <div class="row mb-2">
           <div class="col-sm-6">
             <h1 class="m-0">Dashboard</h1>
-            <?php if(isset($_SESSION['success'])) { ?>
-    <h3> <div class="alert alert-success"> <?php echo $_SESSION['success']; ?></div></h3>
-     <?php }  ?>
-
+              <?php if(isset($_SESSION['login'])) { ?>
+                <h3> <div class="alert alert-success"> <?php echo $_SESSION['login']; ?></div></h3>
+                 <?php }  ?>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -21,7 +20,6 @@
           </div><!-- /.col -->
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
-    </div>
     <!-- /.content-header -->
 
     <!-- Main content -->

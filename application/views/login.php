@@ -12,7 +12,7 @@
       <div class="card-header text-center">
         <a href="" class="h1"><b>LOGIN</b></a>
         <?php if(isset($_SESSION['msg'])) { ?>
-    <h3> <div class="alert alert-danger"> <?php echo $_SESSION['msg']; ?></h3>
+    <h5> <div class="alert alert-danger"> <?php echo $_SESSION['msg']; ?></h3>
      <?php }  ?>
       </div>
       <div class="card-body">
